@@ -1,13 +1,27 @@
 var video;
+var videoSpeed;
+var currentVolumeLevel;
+var volume;
 
 function getVid() {
     video = document.querySelector("#myVideo");
+
+    //add volume description below
+    document.getElementById("volume").innerHTML = video.volume * 100 + "%";
+
+}
+
+function getVideoDuration() {
+    var lengthOfVideo = video.duration;
+    console.log("Video is " + lengthOfVideo + " seconds long");
 }
 
 function playVid() {
     video.play();
     console.log("Play Video");
-    console.log(video);
+    getVideoDuration();
+    //update volume level display
+    document.getElementById("volume").innerHTML = video.volume * 100 + "%";
 }
 
 function pauseVid() {
@@ -16,11 +30,21 @@ function pauseVid() {
 }
 
 function decreaseSpeed() {
-    console.log("Speed is " + " ");
+    video.playbackRate *= 0.8;
+    videoSpeed = video.playbackRate * 100;
+    console.log("Speed is " + videoSpeed + "%");
 }
 
 function increaseSpeed() {
-    console.log("Speed is " + " ");
+    video.playbackRate *= 1.25;
+    videoSpeed = video.playbackRate * 100;
+    console.log("Speed is " + videoSpeed + "%");
+}
+
+function normalSpeed() {
+    video.playbackRate = 1;
+    videoSpeed = video.playbackRate * 100;
+    console.log("Speed is " + videoSpeed + "%");
 }
 
 
@@ -29,22 +53,46 @@ function skipAhead() {
 }
 
 function mute() {
+    var muteButton = document.getElementById("mute");
 
-    console.log("Unmuted");
-
-    console.log("Muted");
+    if (video.muted) {
+        video.muted = false;
+        console.log("Unmuted the video");
+        //toggle button to say mute instead of unmute
+        muteButton.innerHTML = "Mute";
+    } else {
+        video.muted = true;
+        console.log("Muted the video");
+        muteButton.innerHTML = "Unmute";
+    }
 }
 
 function changeVolume() {
-    console.log("Volume is ");
+    volume = document.querySelector("#volume").value;
+    video.volume = volumeSlider.value / 100;
+    document.querySelector("#volume").innerHTML = video.volume * 100 + "%";
+    currentVolumeLevel = video.volume * 100;
+    console.log("Volume is " + currentVolumeLevel + "%");
 }
 
 function gray() {
-
-    console.log("In grayscale")
+    video.classList.add("grayscale");
+    console.log("In grayscale");
 }
 
 function color() {
+    video.classList.remove("grayscale");
+    console.log("In color");
+}
 
-    console.log("In color")
+function skipAhead() {
+    video.currentTime += 60;
+    console.log("Video time is at " + video.currentTime);
+
+    if (video.ended) {
+        video.currentTime = 0;
+        playVid();
+        normalSpeed();
+        console.log("Video time is at " + video.currentTime);
+    }
 }
