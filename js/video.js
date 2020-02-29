@@ -1,52 +1,50 @@
 var video;
 
-function getVid(){
-	video = document.querySelector("#myVideo"); 
+function getVid() {
+    video = document.querySelector("#myVideo");
 }
 
-function playVid() { 
+function playVid() {
+    video.play();
+    console.log("Play Video");
+    console.log(video);
+}
 
-	console.log("Play Video");
-} 
+function pauseVid() {
+    video.pause();
+    console.log("Pause Video");
+}
 
-function pauseVid() { 
-
-	console.log("Pause Video");
-} 
-
-function decreaseSpeed() { 
-
-  	console.log("Speed is "+ );
-} 
+function decreaseSpeed() {
+    console.log("Speed is " + " ");
+}
 
 function increaseSpeed() {
+    console.log("Speed is " + " ");
+}
 
-	console.log("Speed is "+ );
-} 
 
 function skipAhead() {
+    console.log("Current location is " + " ");
+}
 
-	console.log("Current location is "+ );
-} 
+function mute() {
 
-function mute() { 
-  	
-  		console.log("Unmuted");
-  	
-      	console.log("Muted");
+    console.log("Unmuted");
+
+    console.log("Muted");
 }
 
 function changeVolume() {
-;	console.log("Volume is ");
+    console.log("Volume is ");
 }
-       
 
-function gray() { 
+function gray() {
 
-	console.log("In grayscale")
+    console.log("In grayscale")
 }
 
 function color() {
 
-	console.log("In color") 
+    console.log("In color")
 }
