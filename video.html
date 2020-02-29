@@ -17,6 +17,37 @@
 				margin-bottom: 5px;
 			}
 
+			.play::before{
+		  	background: url("icons/play_button.png");
+				background-size: 100%;
+				background-repeat: no-repeat;
+				display: flex;
+				width: 100px;
+				height: 100px;
+				margin-top: 5px;
+				margin-bottom: -45px;
+    		content:"";
+
+				/*How to remove the border from the button without changing other button borders? It's so ugly.
+				border: none;
+				outline: none;
+				border: 0;
+				*/
+			}
+
+			.pause::before{
+				background: url("icons/pause_button.png");
+				background-size: 100%;
+				background-repeat: no-repeat;
+				display: flex;
+				width: 100px;
+				height: 100px;
+				margin-top: 5px;
+				margin-bottom: -45px;
+				content:"";
+				border: none;
+			}
+
 			/*Use CSS before property to display the image before the text in the buttons*/
 
 		</style>
